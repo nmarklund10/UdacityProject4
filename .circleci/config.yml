@@ -2,8 +2,8 @@ version: 2.1
 
 jobs:
     build:
-        image:
-            - docker: python:3.7.3-stretch
+        docker:
+            - image: python:3.7.3-stretch
         steps:
             - run:
                 name: install hadolint
