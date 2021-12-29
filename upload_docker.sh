@@ -5,11 +5,14 @@
 
 # Step 1:
 # Create dockerpath
-# dockerpath=<your docker ID/path>
+dockerpath=nmarklund10/udacity:housing-model
 
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
+docker login --username nmarklund10
+docker tag housing-model:latest nmarklund10/udacity:housing-model
 
 # Step 3:
 # Push image to a docker repository
+docker push nmarklund10/udacity:housing-model

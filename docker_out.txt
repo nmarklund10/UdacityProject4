@@ -1,0 +1,57 @@
+Sending build context to Docker daemon  1.083MB
+Step 1/6 : FROM python:3.7.3-stretch
+ ---> 34a518642c76
+Step 2/6 : WORKDIR /app
+ ---> Using cache
+ ---> c8e232ee3839
+Step 3/6 : COPY . /app
+ ---> Using cache
+ ---> 0c3dbf681a92
+Step 4/6 : RUN make install
+ ---> Using cache
+ ---> 84371e3e4715
+Step 5/6 : EXPOSE 80
+ ---> Using cache
+ ---> ac7c0194a8f1
+Step 6/6 : CMD ["python", "app.py"]
+ ---> Using cache
+ ---> ed4961d1c68f
+Successfully built ed4961d1c68f
+Successfully tagged housing-model:latest
+REPOSITORY                    TAG             IMAGE ID       CREATED             SIZE
+housing-model                 latest          ed4961d1c68f   7 seconds ago       1.25GB
+nmarklund10/udacity           housing-model   95637e26adf1   About an hour ago   1.25GB
+<none>                        <none>          5f0efd32b167   About an hour ago   1.25GB
+<none>                        <none>          1cb83d3524ae   13 hours ago        1.25GB
+<none>                        <none>          f8de2bfc67db   13 hours ago        1.25GB
+gcr.io/k8s-minikube/kicbase   v0.0.28         e2a6c047bedd   2 months ago        1.08GB
+lambci/lambda                 python3.8       094248252696   11 months ago       524MB
+lambci/lambda                 nodejs12.x      22a4ada8399c   11 months ago       390MB
+lambci/lambda                 nodejs10.x      db93be728e7b   11 months ago       385MB
+lambci/lambda                 python3.7       22b4b6fd9260   11 months ago       946MB
+lambci/lambda                 python3.6       177c85a10179   11 months ago       894MB
+lambci/lambda                 python2.7       d96a01fe4c80   11 months ago       763MB
+lambci/lambda                 nodejs8.10      5754fee26e6e   11 months ago       813MB
+python                        3.7.3-stretch   34a518642c76   2 years ago         929MB
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 951-505-444
+[2021-12-29 16:10:23,416] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-12-29 16:10:23,427] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-12-29 16:10:23,434] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-12-29 16:10:23,437] INFO in app: Scaled payload Dataframe: 
+[[0. 0. 0. 0. 0. 0.]]
+[2021-12-29 16:10:23,438] INFO in app: Prediction: 
+[20.35373177134412]
+172.17.0.1 - - [29/Dec/2021 16:10:23] "POST /predict HTTP/1.1" 200 -
