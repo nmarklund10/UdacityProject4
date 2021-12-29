@@ -35,6 +35,7 @@ python3 -m virtualenv --python=<path-to-Python3.7> .devops
 source .devops/bin/activate
 ```
 * Run `make install` to install the necessary dependencies
+* Run `make lint` to ensure code is properly formatted
 
 ### Running `app.py`
 
