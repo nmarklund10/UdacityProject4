@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+    build:
+        image:
+            - docker: python:3.7.3-stretch
+        steps:
+            - run:
+                name: install hadolint
+                command: |
+                    wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
+                    sudo chmod +x /bin/hadolint
+            - run:
+                name: Install dependencies
+                command: make install
+            - run:
+                name: lint files
+                command: make lint
+
+workflows:
+    default:
+        jobs:
+            - build
